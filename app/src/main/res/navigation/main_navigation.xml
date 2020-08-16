@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/songListFragment">
+
+    <fragment
+        android:id="@+id/songListFragment"
+        android:name="com.example.musicplayerenigma.fragments.SongListFragment"
+        android:label="fragment_song_list"
+        tools:layout="@layout/fragment_song_list" >
+        <action
+            android:id="@+id/action_songListFragment_to_songDetailFragment"
+            app:destination="@id/songDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+        <action
+            android:id="@+id/action_songListFragment_to_addSongFragment"
+            app:destination="@id/addSongFragment"
+            app:exitAnim="@android:anim/slide_in_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSongFragment"
+        android:name="com.example.musicplayerenigma.fragments.AddSongFragment"
+        android:label="fragment_add_song"
+        tools:layout="@layout/fragment_add_song" >
+        <action
+            android:id="@+id/action_addSongFragment_pop"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/addSongFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/songDetailFragment"
+        android:name="com.example.musicplayerenigma.fragments.SongDetailFragment"
+        android:label="fragment_song_detail"
+        tools:layout="@layout/fragment_song_detail" />
+</navigation>

@@ -10,12 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.musicplayerenigma.R
-import com.example.musicplayerenigma.model.SongViewModel
-import com.example.musicplayerenigma.recycleview.SongRecycleAdapter
-import kotlinx.android.synthetic.main.fragment_song_list.*
+import com.example.musicplayerenigma.model.AlbumViewModel
+import com.example.musicplayerenigma.recycleview.AlbumRecycleAdapter
+import kotlinx.android.synthetic.main.fragment_album_list.*
 
-class SongListFragment : Fragment() {
-    private val songViewModel by activityViewModels<SongViewModel>()
+class AlbumListFragment : Fragment() {
+    private val songViewModel by activityViewModels<AlbumViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,18 +25,18 @@ class SongListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_song_list, container, false)
+        return inflater.inflate(R.layout.fragment_album_list, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         songListRecycleView.layoutManager = LinearLayoutManager(activity)
-        songViewModel.getSongs().observe(viewLifecycleOwner, Observer {
-            songListRecycleView.adapter = SongRecycleAdapter(it, activity)
+        songViewModel.getAllAlbum().observe(viewLifecycleOwner, Observer {
+            songListRecycleView.adapter = AlbumRecycleAdapter(it, activity)
         })
 
-        addSongActionButton.setOnClickListener {
+        addAlbumActionButton.setOnClickListener {
             Navigation.findNavController(view)
                 .navigate(R.id.action_songListFragment_to_addSongFragment)
         }

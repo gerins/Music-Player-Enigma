@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/songListFragment"
-        android:name="com.example.musicplayerenigma.fragments.SongListFragment"
+        android:name="com.example.musicplayerenigma.fragments.AlbumListFragment"
         android:label="fragment_song_list"
-        tools:layout="@layout/fragment_song_list" >
+        tools:layout="@layout/fragment_album_list" >
         <action
             android:id="@+id/action_songListFragment_to_songDetailFragment"
             app:destination="@id/songDetailFragment"
@@ -21,9 +21,9 @@
     </fragment>
     <fragment
         android:id="@+id/addSongFragment"
-        android:name="com.example.musicplayerenigma.fragments.AddSongFragment"
+        android:name="com.example.musicplayerenigma.fragments.AddAlbumFragment"
         android:label="fragment_add_song"
-        tools:layout="@layout/fragment_add_song" >
+        tools:layout="@layout/fragment_add_album" >
         <action
             android:id="@+id/action_addSongFragment_pop"
             app:exitAnim="@android:anim/slide_out_right"
@@ -32,7 +32,21 @@
     </fragment>
     <fragment
         android:id="@+id/songDetailFragment"
-        android:name="com.example.musicplayerenigma.fragments.SongDetailFragment"
+        android:name="com.example.musicplayerenigma.fragments.AlbumDetailFragment"
         android:label="fragment_song_detail"
-        tools:layout="@layout/fragment_song_detail" />
+        tools:layout="@layout/fragment_album_detail" >
+        <action
+            android:id="@+id/action_songDetailFragment_to_addSongFragment2"
+            app:destination="@id/addSongFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSongFragment2"
+        android:name="com.example.musicplayerenigma.fragments.AddSongFragment"
+        android:label="fragment_add_song"
+        tools:layout="@layout/fragment_add_song" >
+        <action
+            android:id="@+id/action_addSongFragment2_pop"
+            app:popUpTo="@id/addSongFragment2"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
